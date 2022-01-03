@@ -74,7 +74,38 @@ using namespace std;
 class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
-        
+        // Legacy Way
+        int i;
+        for (i = digits.size() - 1; i >= 0; i--) {
+            if(digits[i] == 9){
+                digits[i] = 0;
+            }else {
+                digits[i] = digits[i] + 1;
+                return digits;
+            }
+        }
+        digits[0] = digits[0] + 1;
+        digits.push_back(0);
+        return digits;
+
+        // STL
+        vector<int>::iterator ptr = digits.end() - 1;
+        while (*ptr == 9) {
+            *ptr = 0;
+            if(ptr == digits.begin()){
+                *ptr = *ptr + 1;
+                digits.push_back(0);
+                return digits;
+            }
+            ptr = ptr - 1;
+        }
+        *ptr = *ptr + 1;
+        return digits;
     }
 };
 // @lc code=end
+
+/** Things to note
+1. Iterating backwards using pointers
+2. Check for a specific number in array from backwards
+*/
