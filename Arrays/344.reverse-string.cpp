@@ -48,6 +48,9 @@ using namespace std;
 class Solution {
 public:
     void reverseString(vector<char>& s) {
+        //////////////////////////////////
+        //////      APPROACH 1      //////
+        //////////////////////////////////
         // double pointer
         vector<char>::iterator ptr1 = s.begin();
         vector<char>::iterator ptr2 = s.end() - 1;
@@ -58,6 +61,9 @@ public:
             ptr1 = ptr1 + 1;
             ptr2 = ptr2 - 1;
         }
+        //////////////////////////////////
+        //////      APPROACH 2      //////
+        //////////////////////////////////
         // Swap function
         int start = 0, end = s.size() - 1;
         while (start < end) {
