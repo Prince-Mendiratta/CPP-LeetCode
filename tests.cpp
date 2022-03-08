@@ -4,6 +4,6 @@
 using namespace std;
 
 int main(){
-    cout<<7%2;
+    cout<<7/10;
     return 0;
 }
