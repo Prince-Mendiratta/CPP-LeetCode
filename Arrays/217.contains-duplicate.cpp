@@ -40,6 +40,7 @@
 
 #include <iostream>
 #include <string>
+#include <unordered_map>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -48,12 +49,33 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
+    //////////////////////////////////
+    //////      APPROACH 1      //////
+    //////////////////////////////////
+    // Time Complexity - O(nlogn)
+    // Space Complexity - O(1)
     bool containsDuplicate(vector<int>& nums) {
         sort(nums.begin(), nums.end());
         for(int i=0;i<nums.size()-1;i++)
             if(nums[i]==nums[i+1])
                 return true;
         
+        return false;
+    }
+
+    //////////////////////////////////
+    //////      APPROACH 2      //////
+    //////////////////////////////////
+    // Time Complexity - O(n)
+    // Space Complexity - O(n)
+    bool containsDuplicate2(vector<int>& nums) {
+        unordered_map<int, int> m1;
+        for (int i = 0; i < nums.size(); i++) {
+            if(m1.find(nums[i]) != m1.end()){
+                return true;
+            }
+            m1[nums[i]]++;
+        }
         return false;
     }
 };

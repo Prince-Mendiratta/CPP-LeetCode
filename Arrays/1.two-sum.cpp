@@ -60,13 +60,17 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
 using namespace std;
 
 class Solution {
 public:
+    //////////////////////////////////
+    //////      APPROACH 1      //////
+    //////////////////////////////////
+    // Bruteforce Approach
+    // Time Complexity - O(n^2)
     vector<int> twoSum(vector<int>& nums, int target) {
-        // Bruteforce Approach
-        // Time Complexity - O(n^2)
         vector<int> out;
         for(int i = 0; i < nums.size(); i++){
             for(int j = i+1; j < nums.size(); j++){
@@ -77,6 +81,29 @@ public:
                 }
             }
         }
+        return out;
+    }
+
+    //////////////////////////////////
+    //////      APPROACH 2      //////
+    //////////////////////////////////
+    // HashMap
+    // Time Complexity - O(n)
+    // Space Complexity - O(n)
+    vector<int> twoSum2(vector<int>& nums, int target) {
+        vector<int> out;
+        unordered_map<int, int> m1;
+        for(int i = 0; i < nums.size(); i++){
+            int val = target - nums[i];
+            if(m1.find(val) == m1.end()){
+                m1[nums[i]] = i;
+            }
+            else{
+                out.push_back(i);
+                out.push_back(m1[val]);
+                return out;
+            }
+        } // Worst - O(n)
         return out;
     }
 };
