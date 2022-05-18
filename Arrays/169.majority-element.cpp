@@ -78,7 +78,7 @@ public:
     //////////////////////////////////
     // Sorting the Array fully
     // Using two iterators to keep track of frequency of number and once counter exceeds n/2, return.
-    // Time - O(n)
+    // Time - O(nlogn)
     // Space - O(1)
 
     int majorityElement1(vector<int>& nums) {

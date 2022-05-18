@@ -59,7 +59,6 @@ public:
     //////////////////////////////////
     //////      APPROACH 1      //////
     //////////////////////////////////
-    // Bruteforce
     // Time - O(n)
     // Space - O(n)
 
@@ -83,7 +82,7 @@ public:
     //////      APPROACH 2      //////
     //////////////////////////////////
     // Sorting the array
-    // Time - O(n)
+    // Time - O(nlogn)
     // Space - O(1)
 
     int singleNumber1(vector<int>& nums) {

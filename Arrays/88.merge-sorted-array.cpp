@@ -87,7 +87,6 @@ public:
   void merge(vector<int> &nums1, int m, vector<int> &nums2, int n) {
     int x = nums1.size() - 1, i = m - 1, j = n - 1;
     vector<vector<int>> m1(5);
-    m1[0] = {2, 3};
     while (j >= 0) {
       if (i >= 0 && nums1[i] > nums2[j]) {
         nums1[x] = nums1[i];

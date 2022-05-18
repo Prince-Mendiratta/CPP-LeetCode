@@ -62,6 +62,12 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
+    //////////////////////////////////
+    //////      APPROACH 1      //////
+    //////////////////////////////////
+    // Counting Method
+    // Time Complexity - O(n) but requires 2 traversals
+    // Not optimal
     void sortColors(vector<int>& a) {
         int ones = 0;
         int twos = 0;
@@ -77,20 +83,29 @@ public:
             else a[i] = 2;
         }
         // Approach 2
-        int zeros = n - (ones+twos);
-        int x = 0;
-        while(zeros--){
-            a[x] = 0;
-            x++;
-        }
-        while(ones--){
-            a[x] = 1;
-            x++;
-        }
-        while(twos--){
-            a[x] = 2;
-            x++;
-        }
+        // int zeros = n - (ones+twos);
+        // int x = 0;
+        // while(zeros--){
+        //     a[x] = 0;
+        //     x++;
+        // }
+        // while(ones--){
+        //     a[x] = 1;
+        //     x++;
+        // }
+        // while(twos--){
+        //     a[x] = 2;
+        //     x++;
+        // }
+    }
+
+    //////////////////////////////////
+    //////      APPROACH 2      //////
+    //////////////////////////////////
+    // Dutch Flag Method
+    // Time Complexity - O(n)
+    void sortColors2(vector<int>& a) {
+        
     }
 };
 // @lc code=end

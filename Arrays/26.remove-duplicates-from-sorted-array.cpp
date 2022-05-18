@@ -82,6 +82,7 @@
 
 #include <cstddef>
 #include <iostream>
+#include <set>
 #include <string>
 #include <vector>
 using namespace std;
@@ -89,6 +90,12 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
+  //////////////////////////////////
+  //////      APPROACH 1      //////
+  //////////////////////////////////
+  // Efficient Approach
+  // Time - O(n)
+  // Space - O(1)
   int removeDuplicates(vector<int> &nums) {
     int length = nums.size();
     if (nums.size() == 0)
@@ -100,7 +107,24 @@ public:
       nums[left] = nums[right];
     }
     return left + 1;
-    return length;
+  }
+
+  //////////////////////////////////
+  //////      APPROACH 2      //////
+  //////////////////////////////////
+  // Bruteforce
+  // Time - O(nlogn)
+  // Space - O(n)
+  int removeDuplicates2(vector<int> &nums) {
+    set<int> s;
+    for (int i = 0; i < nums.size(); i++) {
+        s.insert(nums[i]);
+    }
+    int i = 0;
+    for (set<int>::iterator it = s.begin(); it != s.end(); it++) {
+        nums[i] = *it;
+    }
+    return i;
   }
 };
 // @lc code=end
