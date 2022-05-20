@@ -70,16 +70,24 @@ using namespace std;
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution {
 public:
+    //////////////////////////////////
+    //////      APPROACH 1      //////
+    //////////////////////////////////
+    // Brute force
+    // Time - O(n)
+    // Space - O(n)
     ListNode* reverseList(ListNode* head) {
-        //////////////////////////////////
-        //////      APPROACH 1      //////
-        //////////////////////////////////
-        // Brute force
-        // Time - O(n)
-        // Space - O(n)
-
         ListNode *p = head;
         vector<int> vc;
         while(p){
@@ -92,11 +100,14 @@ public:
             p = p->next;
         }
         return head;
+    }
 
-        //////////////////////////////////
-        //////      APPROACH 2      //////
-        //////////////////////////////////
-        // Sliding Pointers
+    //////////////////////////////////
+    //////      APPROACH 2      //////
+    //////////////////////////////////
+    // Sliding Pointers
+    // Time Complexity - O(n)
+    ListNode* reverseList2(ListNode* head) {
         ListNode *p = NULL, *q = NULL;
         while(head){
             q = p;
